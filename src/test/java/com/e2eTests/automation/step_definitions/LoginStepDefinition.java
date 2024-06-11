@@ -44,7 +44,8 @@ public class LoginStepDefinition {
 
 	@When("Je clique sur le bouton login")
 	public void jeCliqueSurLeBoutonLogin() {
-		LoginPage.getBtnLogin().click();
+		//LoginPage.getBtnLogin().click();
+		seleniumUtils.click(LoginPage.getBtnLogin());
 
 	}
 
