@@ -1,6 +1,6 @@
 package com.e2eTests.automation.step_definitions;
 
-import org.junit.Assert;
+ import org.junit.Assert;
 
 import com.e2eTests.automation.page_objects.LoginPage;
 import com.e2eTests.automation.utils.ConfigFileReader;
@@ -17,7 +17,7 @@ public class LoginStepDefinition {
 	public SeleniumUtils seleniumUtils;
 
 	public LoginStepDefinition() {
-		loginPage = new LoginPage(); 
+		loginPage = new LoginPage();
 		configFileReader = new ConfigFileReader();
 		seleniumUtils = new SeleniumUtils();
 	}
@@ -30,29 +30,31 @@ public class LoginStepDefinition {
 
 	@When("Je saisis l'adresse mail {string}")
 	public void jeSaisisLAdresseMail(String email) {
-		LoginPage.getEmail().clear();
-		LoginPage.getEmail().sendKeys(configFileReader.getProperties("home.login"));
-
+		seleniumUtils.writeText(LoginPage.getEmail(), (configFileReader.getProperties("home.login")));
 	}
 
 	@When("Je saisis le mot de passe {string}")
 	public void jeSaisisLeMotDePasse(String password) {
-		LoginPage.getPassword().clear();
-		LoginPage.getPassword().sendKeys(password);
+		seleniumUtils.writeText(LoginPage.getPassword(), password);
 
 	}
 
 	@When("Je clique sur le bouton login")
 	public void jeCliqueSurLeBoutonLogin() {
-		//LoginPage.getBtnLogin().click();
 		seleniumUtils.click(LoginPage.getBtnLogin());
 
 	}
 
+	/* TC - Logout */
+	@When("Je clique sur le bouton Logout")
+	public void jeCliqueSurLeBoutonLogout() {
+		seleniumUtils.click(LoginPage.getBtnLogout());
+	}
+
 	@Then("Je me redirige vers la page home {string}")
 	public void jeMeRedirigeVersLaPageHome(String text) {
-		String titlePage = LoginPage.getTitlePage().getText();
-		Assert.assertEquals(titlePage, text);
+		  String titlePage = LoginPage.getTitlePage().getText();
+		  Assert.assertEquals(titlePage, text);
 	}
 
 }

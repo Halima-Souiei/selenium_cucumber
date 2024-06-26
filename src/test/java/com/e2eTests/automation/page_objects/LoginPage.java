@@ -1,11 +1,12 @@
 package com.e2eTests.automation.page_objects;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import com.e2eTests.automation.utils.BasePage;
 import com.e2eTests.automation.utils.Setup;
+
+ 
 
 public class LoginPage extends BasePage {
 
@@ -19,14 +20,24 @@ public class LoginPage extends BasePage {
 	@FindBy(how = How.XPATH, using = "//button[@type='submit']")
 	private static WebElement btnLogin;
 	
-	@FindBy(how = How.TAG_NAME, using = "h1")
+	@FindBy(how = How.XPATH, using = " //body/div/div/div[1]/h1[1]") // change me
 	private static WebElement text;
+	
+	@FindBy(how = How.XPATH, using = "//a[normalize-space()='Logout']")
+	private static WebElement btnLogout;
+	
+	@FindBy(how = How.XPATH, using = "//*[@id=\"main\"]/div/div/div/div[1]/h1")
+	private static WebElement titlePage;
 
 	public LoginPage() {
-		super(Setup.getDriver());
+		super(Setup.getDriver());	
 	}
 
-	/* Create method getter */
+	/*Create method getter */
+	public static WebElement getBtnLogout() {
+		return btnLogout;
+	}
+	
 	public static WebElement getEmail() {
 		return email;
 	}

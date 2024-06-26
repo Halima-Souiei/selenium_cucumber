@@ -19,7 +19,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 		features = {"src/spec/features"},
 		plugin = {"pretty", "html:target/cucumber-report.html"},
-		tags = ("@login"),
+		tags = ("@login-multiUsers"),
 		//glue = {"src/test/java/com/e2eTests/automation/step_definitions"},
 		monochrome = false,
 		snippets = CAMELCASE
