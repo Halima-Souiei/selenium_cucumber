@@ -1,11 +1,22 @@
+ @product
+Feature: Je souhaire rechercher et ajouter un produit
 
-@tag
-Feature: Title of your feature
-  I want to use this template for my feature file
+  Background: 
+    Given Je visite le site nopcommerce
+    When Je saisis l'adresse mail "mailto:admin@yourstore.com"
+    And Je saisis le mot de passe "admin"
+    And Je clique sur le bouton login
+    And Je clique sur le bouton catalog
+    And Je clique sur le bouton products
 
-  @recherche-produit
-  Scenario: Je souhaite chercher un produit
-  When Je clique sur le bouton catalogue 
-  When Je clique sur le bouton products
-  And Je saisis le nom de produit
-  And Je clique sur le bouton search
+  @rechercheProduit
+  Scenario: Recherche de Produit
+    And Je saisis le nom du produit "HP Spectre XT Pro UltraBook"
+    And Je saisis la categorie
+    And Je clique sur le bouton search
+    Then Je verifie le produit "HP Spectre XT Pro UltraBook"
+  
+
+  @ajoutProduct
+  Scenario: Ajout
+    And Je clique sur le bouton add new
