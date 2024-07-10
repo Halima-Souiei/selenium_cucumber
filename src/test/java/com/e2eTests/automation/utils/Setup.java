@@ -38,8 +38,10 @@ public class Setup {
 		switch (browser) {
 		case "chrome":
 			ChromeOptions chromeOptions = new ChromeOptions();
-			chromeOptions.addArguments("['start-maximized']");
+			//chromeOptions.addArguments("['start-maximized']");
 			driver = new ChromeDriver(chromeOptions);
+			driver.manage().window().maximize();
+
 			break;
 
 		case "firefox":

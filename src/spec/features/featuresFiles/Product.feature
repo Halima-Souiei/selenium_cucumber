@@ -1,4 +1,4 @@
- @product
+@product
 Feature: Je souhaire rechercher et ajouter un produit
 
   Background: 
@@ -12,11 +12,15 @@ Feature: Je souhaire rechercher et ajouter un produit
   @rechercheProduit
   Scenario: Recherche de Produit
     And Je saisis le nom du produit "HP Spectre XT Pro UltraBook"
-    And Je saisis la categorie
+    And Je selectionne la categorie
     And Je clique sur le bouton search
     Then Je verifie le produit "HP Spectre XT Pro UltraBook"
   
 
   @ajoutProduct
-  Scenario: Ajout
+  Scenario: Je souhaite ajouter un produit dans le site
     And Je clique sur le bouton add new
+    And Je saisie le nom de produit "sharp"
+    And Je saisie la date de debut "10/07/2024 12:12"
+    And je selectionne le prix de produit  
+    And Je clique sur le bouton save        

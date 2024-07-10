@@ -15,4 +15,4 @@ Feature: Je souhaite verifier la page de connexion
   @logout
   Scenario: Je souhaite me deconnecter
     When Je clique sur le bouton Logout
-    Then Je me redirige vers la page home "Dashboard"
+    Then Je me redirige vers la page home "Admin area demo"
